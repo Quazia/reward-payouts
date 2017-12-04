@@ -36,7 +36,7 @@ contract Rewards{
     }
 
     function addReward(uint reward) public {
-        sumPayout[period++] = reward / totalSupply;
+        sumPayout[period] = sumPayout[period++] + (reward / totalSupply);
     }
 
 
