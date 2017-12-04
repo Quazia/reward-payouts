@@ -29,6 +29,7 @@ contract Rewards{
     }
 
     function updateRewards(address user) public {
+        if(info[user].lastTransfer == period) return;
         uint weightedpayout = sumPayout[period] - sumPayout[period];
         uint share = (period - info[user].lastTransfer) * weightedpayout;
         info[user].summedRewards += share;
